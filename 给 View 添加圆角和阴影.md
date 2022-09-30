@@ -18,6 +18,16 @@ class MyViewController : UIViewController {
         */
         cardView.layer.cornerCurve = .continuous
         
+        
+        /// 阴影颜色
+        cardView.layer.shadowColor = UIColor.black.cgColor
+        /// 阴影不透明度
+        cardView.layer.shadowOpacity = 0.5
+        /// 阴影偏移
+        cardView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        /// 阴影半径
+        cardView.layer.shadowRadius = 10
+        
         view.addSubview(cardView)
     
         self.view = view
