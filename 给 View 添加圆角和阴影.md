@@ -62,6 +62,7 @@ PlaygroundPage.current.liveView = MyViewController()
 ### 关于 `layer.masksToBounds`
 
 如果一个 view 拥有 subView，当设置这个 `view.layer.masksToBounds = ture` 时，所有超出这个 view 边框的 subview 部分都会被裁切掉，类似增加了一个蒙板；
+
 而默认情况下， `layer.masksToBounds` 的值都是 `false`，也就是常见情况 “subView 有可能超出 superView 的边框”；
 
 所以在添加 view 圆角时，有时候看上去没有生效，有可能是这个 view  存在 subView，而没有将 `view.layer.masksToBounds` 改为 `false` ，导致 subView 超出了 View 的边框，所以看上去“没有生效”
