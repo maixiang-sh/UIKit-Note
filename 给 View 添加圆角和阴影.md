@@ -19,8 +19,6 @@ class MyViewController : UIViewController {
             2.circular  圆形的，圆角和直边衔接处看上去会有一些棱角，显的比较方正
         */
         
-        
-        
         /// 阴影颜色
         cardView.layer.shadowColor = UIColor.black.cgColor
         /// 阴影不透明度
@@ -58,3 +56,17 @@ PlaygroundPage.current.liveView = MyViewController()
         </td>
     </tr>
 </table>
+
+
+
+#### 关于 `layer.masksToBounds`
+
+如果一个 view 拥有 subView，当设置这个 `view.layer.masksToBounds = ture` 时，所有超出这个 view 边框的 subview 部分都会被裁切掉，类似增加了一个蒙板；
+而默认情况下， `layer.masksToBounds` 的值都是 `false`，也就是常见情况 “subView 有可能超出 superView 的边框”；
+
+所以在添加 view 圆角时，有时候看上去没有生效，有可能是这个 view  存在 subView，而没有将 `view.layer.masksToBounds` 改为 `false` ，导致 subView 超出了 View 的边框，所以看上去“没有生效”
+
+[stackoverflow 上的解答](https://stackoverflow.com/a/67999436/19647318)
+
+<img width="500" alt="CleanShot 2022-09-30 at 18 49 55@2x" src="https://user-images.githubusercontent.com/47806196/193254489-120ec42a-c0dc-4e86-b9a7-e2e24f0668bc.png">
+
