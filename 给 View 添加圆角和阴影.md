@@ -59,7 +59,7 @@ PlaygroundPage.current.liveView = MyViewController()
 
 
 
-#### 关于 `layer.masksToBounds`
+### 关于 `layer.masksToBounds`
 
 如果一个 view 拥有 subView，当设置这个 `view.layer.masksToBounds = ture` 时，所有超出这个 view 边框的 subview 部分都会被裁切掉，类似增加了一个蒙板；
 而默认情况下， `layer.masksToBounds` 的值都是 `false`，也就是常见情况 “subView 有可能超出 superView 的边框”；
