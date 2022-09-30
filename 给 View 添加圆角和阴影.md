@@ -68,5 +68,5 @@ PlaygroundPage.current.liveView = MyViewController()
 
 [stackoverflow 上的解答](https://stackoverflow.com/a/67999436/19647318)
 
-<img width="500" alt="CleanShot 2022-09-30 at 18 49 55@2x" src="https://user-images.githubusercontent.com/47806196/193254489-120ec42a-c0dc-4e86-b9a7-e2e24f0668bc.png">
+<img width="600" alt="CleanShot 2022-09-30 at 18 49 55@2x" src="https://user-images.githubusercontent.com/47806196/193254489-120ec42a-c0dc-4e86-b9a7-e2e24f0668bc.png">
 
