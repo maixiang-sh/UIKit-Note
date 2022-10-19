@@ -95,3 +95,50 @@ let stringURL = FileManager.documentDirectoryURL
 > // 使用 `URL` 的 `.lastPathComponent` 方法，可以获取 URL 最后一个路径组件
 > // challengeURL.lastPathComponent == "学习资料.avi"
 > ```
+
+
+
+
+## 保存和加载数据
+示例数据：
+```swift
+let favoriteBytes: [UInt8] = [
+  240,          159,          152,          184,
+  240,          159,          152,          185,
+  0b1111_0000,  0b1001_1111,  0b1001_1000,  186,
+  0xF0,         0x9F,         0x98,         187
+]
+
+```
+
+写入方法：
+```swift
+// 从 favoriteBytes 创建 Data
+let favoriteBytesData = Data(favoriteBytes)
+
+// 创建保存数据的目录
+let favoriteBytesURl = URL(filePath: "favoriteBytes",relativeTo: FileManager.documentsDirectoryURL)
+
+/// 使用 Data.write(to:) 方法，将数据缓冲区的内容写入某个位置。write 方法可能会抛出错误，所以需要 try 关键词
+try favoriteBytesData.write(to: favoriteBytesURl)
+```
+
+从 URL 加载数据的方法：
+
+```swift
+let favoriteBytesData = Data(favoriteBytes)
+let favoriteBytesURl = URL(filePath: "favoriteBytes",relativeTo: FileManager.documentsDirectoryURL)
+
+
+/// 序列化，将数据缓冲区的内容写入某个位置。
+try favoriteBytesData.write(to: favoriteBytesURl)
+
+/// 反序列化，使用 Data 的初始化方法 Data(contentsOf:URL) 从 URL 初始化 Data 实例。也需要 try
+let savedfavoriteBytesData = try Data(contentsOf: favoriteBytesURl)
+/// 从 Data 转换为 Array
+let savedfavoriteBytes = Array<UInt8>(savedfavoriteBytesData)
+
+favoriteBytes == savedfavoriteBytes  // true
+
+```
+
